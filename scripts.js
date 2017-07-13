@@ -80,4 +80,24 @@ $(function(){
 
 			});
 		});
+	//DELETE
+	$('table').on('click','.delete-button', function(data){
+		var rowEl = $(this).closest('tr');
+		var id= rowEl.find('.id').text();
+		$.ajax({
+
+				url: '/products/' + id,
+				method: 'DELETE',
+				contentType: 'application/json',
+				success: function(response){
+					console.log(response);
+					$('#get-button').click();
+
+				}
+
+
+			});
+		});
+
+
 });
